@@ -572,6 +572,10 @@ public:
     {
         return 10;
     }
+    static bool zoneDetectionNearestByCenter()
+    {
+        return false;
+    }
     static int previewWidth()
     {
         return 180;

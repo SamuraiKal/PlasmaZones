@@ -284,6 +284,11 @@ ZoneDetectionResult ZoneDetector::detectMultiZone(const QPointF& cursorPos) cons
         return detectZone(cursorPos);
     }
 
+    // Skip multi-zone detection when center-only mode is enabled.
+    if (m_nearestZoneByCenter) {
+        return detectZone(cursorPos);
+    }
+
     const auto& allZones = m_layout->zones();
     const qreal adjacentThreshold = m_adjacentThreshold;
 

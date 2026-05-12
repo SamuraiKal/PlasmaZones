@@ -34,6 +34,7 @@ private Q_SLOTS:
         m_settings = new StubSettings(nullptr);
         m_detector = new PhosphorZones::ZoneDetector(nullptr);
         m_detector->setAdjacentThreshold(m_settings->adjacentThreshold());
+        m_detector->setNearestZoneByCenter(m_settings->zoneDetectionNearestByCenter());
         m_layout = new PhosphorZones::Layout(QStringLiteral("OverlapTest"), nullptr);
     }
 

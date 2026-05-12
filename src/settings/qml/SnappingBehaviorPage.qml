@@ -116,6 +116,36 @@ SettingsFlickable {
         }
 
         // =================================================================
+        // ZONE DETECTION RULES
+        // =================================================================
+        SettingsCard {
+            id: zoneDetectionCard
+            Layout.fillWidth: true
+            headerText: i18n("Zone Detection Rules")
+            collapsible: true
+
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+
+                SettingsRow {
+                    title: i18n("Center of zone only")
+                    description: i18n("Change how the overlay detects your selected zone. Enabling this will select based on the zone whose center is closest to the cursor. Ignores overlap and ignores zone edges")
+
+                    SettingsSwitch {
+                        checked: appSettings.zoneDetectionNearestByCenter
+                        accessibleName: i18n("Enable selecting nearest zone by center only")
+                        onToggled: function(newValue) {
+                            appSettings.zoneDetectionNearestByCenter = newValue;
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        // =================================================================
         // ZONE SPAN
         // =================================================================
         Item {

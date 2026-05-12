@@ -627,6 +627,7 @@ void appendZoneSelectorSchema(PhosphorConfig::Schema& schema)
          clampInt(CD::gridColumnsMin(), CD::gridColumnsMax())},
         {CD::sizeModeKey(), CD::sizeMode(), QMetaType::Int, {}, clampInt(0, 2)},
         {CD::maxRowsKey(), CD::maxRows(), QMetaType::Int, {}, clampInt(CD::maxRowsMin(), CD::maxRowsMax())},
+        {CD::zoneDetectionNearestByCenterKey(), CD::zoneDetectionNearestByCenter(), QMetaType::Bool},
     };
 }
 

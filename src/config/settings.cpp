@@ -1725,6 +1725,9 @@ PZ_STORE_SET_BOOL(setZoneSelectorPreviewLockAspect, snappingZoneSelectorGroup, p
                   zoneSelectorPreviewLockAspectChanged)
 PZ_STORE_GET(int, zoneSelectorGridColumns, snappingZoneSelectorGroup, gridColumnsKey, int)
 PZ_STORE_SET_INT(setZoneSelectorGridColumns, snappingZoneSelectorGroup, gridColumnsKey, zoneSelectorGridColumnsChanged)
+PZ_STORE_GET(bool, zoneDetectionNearestByCenter, snappingZoneSelectorGroup, zoneDetectionNearestByCenterKey, bool)
+PZ_STORE_SET_BOOL(setZoneDetectionNearestByCenter, snappingZoneSelectorGroup, zoneDetectionNearestByCenterKey,
+                  zoneDetectionNearestByCenterChanged)
 
 ZoneSelectorSizeMode Settings::zoneSelectorSizeMode() const
 {

@@ -160,6 +160,15 @@ Daemon::Daemon(QObject* parent)
         m_zoneDetector->setAdjacentThreshold(m_settings->adjacentThreshold());
     });
 
+    // Wire zoneDetectionNearestByCenter setting to the zone detector.
+    // Uses &ISettings:: — the signal is declared only in ISettings (like
+    // adjacentThresholdChanged). Re-declaring in Settings would create a
+    // separate signal index and break the connection.
+    m_zoneDetector->setNearestZoneByCenter(m_settings->zoneDetectionNearestByCenter());
+    connect(m_settings.get(), &ISettings::zoneDetectionNearestByCenterChanged, this, [this]() {
+        m_zoneDetector->setNearestZoneByCenter(m_settings->zoneDetectionNearestByCenter());
+    });
+
     // Construct the daemon-owned tile-algorithm registry up front so the
     // layout-source bundle below can bind its autotile source to it. The
     // registry was previously a process-global singleton; per-daemon

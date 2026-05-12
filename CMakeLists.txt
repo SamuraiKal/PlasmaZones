@@ -507,6 +507,22 @@ add_custom_target(uninstall
     COMMENT "Uninstalling PlasmaZones..."
 )
 
+# Force reinstall files even when CMake thinks installed files are up to date.
+#
+# Normal install may skip files whose destination timestamp/content appears current.
+# This target runs the generated install script with CMAKE_INSTALL_ALWAYS enabled.
+if(NOT TARGET force-install)
+    add_custom_target(force-install
+        COMMAND
+            "${CMAKE_COMMAND}"
+            -DCMAKE_INSTALL_ALWAYS=1
+            -DCMAKE_INSTALL_MESSAGE=ALWAYS
+            -P "${CMAKE_BINARY_DIR}/cmake_install.cmake"
+        COMMENT "Force installing all PlasmaZones files to the configured install prefix"
+        USES_TERMINAL
+    )
+endif()
+
 # Build/install only installs files. Enabling the daemon, refreshing sycoca/KWin,
 # and user-facing messages are handled by packaging (Arch .install, Debian postinst, RPM %post).
 

@@ -316,6 +316,7 @@ Q_SIGNALS:
     void zoneSelectorGridColumnsChanged();
     void zoneSelectorSizeModeChanged();
     void zoneSelectorMaxRowsChanged();
+    void zoneDetectionNearestByCenterChanged();
     void perScreenZoneSelectorSettingsChanged();
     void perScreenAutotileSettingsChanged();
     void perScreenSnappingSettingsChanged();

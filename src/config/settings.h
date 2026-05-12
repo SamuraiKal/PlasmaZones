@@ -220,6 +220,8 @@ public:
                    setZoneSelectorPreviewLockAspect NOTIFY zoneSelectorPreviewLockAspectChanged)
     Q_PROPERTY(int zoneSelectorGridColumns READ zoneSelectorGridColumns WRITE setZoneSelectorGridColumns NOTIFY
                    zoneSelectorGridColumnsChanged)
+    Q_PROPERTY(bool zoneDetectionNearestByCenter READ zoneDetectionNearestByCenter WRITE setZoneDetectionNearestByCenter
+                   NOTIFY zoneDetectionNearestByCenterChanged)
 
     // Autotiling Settings
     Q_PROPERTY(bool autotileEnabled READ autotileEnabled WRITE setAutotileEnabled NOTIFY autotileEnabledChanged)
@@ -674,6 +676,8 @@ public:
     void setZoneSelectorSizeModeInt(int mode);
     int zoneSelectorMaxRows() const override;
     void setZoneSelectorMaxRows(int rows) override;
+    bool zoneDetectionNearestByCenter() const override;
+    void setZoneDetectionNearestByCenter(bool enabled) override;
 
     // Per-screen zone selector config (override > global fallback)
     ZoneSelectorConfig resolvedZoneSelectorConfig(const QString& screenIdOrName) const override;

@@ -191,6 +191,10 @@ public:
     PZ_CONFIG_KEY(triggersKey, "Triggers")
     PZ_CONFIG_KEY(toggleActivationKey, "ToggleActivation")
 
+    // Snapping.Behavior.ZoneDetection
+    // (uses enabledKey and triggersKey)
+    PZ_CONFIG_KEY(zoneDetectionNearestByCenterKey, "ZoneDetectionNearestByCenter")
+
     // Snapping.Behavior.ZoneSpan
     // (uses enabledKey and triggersKey)
 

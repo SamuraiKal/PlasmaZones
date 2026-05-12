@@ -75,6 +75,15 @@ public:
         return m_adjacentThreshold;
     }
 
+    bool nearestZoneByCenter() const
+    {
+        return m_nearestZoneByCenter;
+    }
+    void setNearestZoneByCenter(bool enabled)
+    {
+        m_nearestZoneByCenter = enabled;
+    }
+
     Q_INVOKABLE ZoneDetectionResult detectZone(const QPointF& cursorPos) const override;
     Q_INVOKABLE ZoneDetectionResult detectMultiZone(const QPointF& cursorPos) const override;
     /**
@@ -108,6 +117,7 @@ private:
 
     Layout* m_layout = nullptr;
     int m_adjacentThreshold = ::PhosphorZones::ZoneDefaults::AdjacentThreshold;
+    bool m_nearestZoneByCenter = false;
 
     // UI state management
     std::unique_ptr<class ZoneHighlighter> m_highlighter;
